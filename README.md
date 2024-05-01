@@ -7,6 +7,7 @@ Os arquivos Terraform contidos nesse repositório cria a seguinte infraestrutura
 - Cognito para gerenciar usuários.
 - Lambda para criação de usuário no Cognito.
 - Lambda para autenticação de usuário no Cognito.
+- Lambda para ser executada na pré-geração do token pelo Cognito. Utilizada para adicionar Claims ao Token.
 - API Gateway para expor enpoint para a chamada das lambdas.
 
 **Obs.:** Necessário informar no arquivo **terraform/variables.tf** as informações referentes a conta da AWS Academy

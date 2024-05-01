@@ -5,7 +5,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'terraform/**'
+      - 'lambdas/**'
   pull_request:
+    paths:
+      - 'terraform/**'
+      - 'lambdas/**'
 
 jobs:
   terraform:
