@@ -25,6 +25,10 @@ resource "aws_cognito_user_pool" "user-pool" {
     mutable             = true
     required            = true
   }
+
+  lambda_config {
+    pre_token_generation = aws_lambda_function.auth-add-claim-lambda.arn
+  }
 }
 
 resource "aws_cognito_user_pool_client" "user-pool-client" {

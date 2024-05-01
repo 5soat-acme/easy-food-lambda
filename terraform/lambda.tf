@@ -13,6 +13,14 @@ resource "aws_lambda_function" "create-user-lambda" {
   }
 }
 
+resource "aws_lambda_function" "auth-add-claim-lambda" {
+  filename      = "../lambdas/auth/auth_add_claim.zip"
+  function_name = "auth_add_claim"
+  role          = var.labRole
+  handler       = "auth_add_claim.lambda_handler"
+  runtime       = "python3.8"
+}
+
 resource "aws_lambda_function" "auth-lambda" {
   filename      = "../lambdas/auth/auth_lambda.zip"
   function_name = "auth_lambda"
@@ -27,12 +35,20 @@ resource "aws_lambda_function" "auth-lambda" {
   }
 }
 
-# Criando a política de permissão para a função Lambda - Permitindo acesso pelo API Gateway
+# Criando a política de permissão para a função Lambda
 resource "aws_lambda_permission" "create-user-lambda_permission-apigw" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.create-user-lambda.arn
   principal     = "apigateway.amazonaws.com"
+}
+
+resource "aws_lambda_permission" "auth_add_claim_lambda_permission-cognito" {
+  statement_id  = "AllowCognitoInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.auth-add-claim-lambda.arn
+  principal     = "cognito-idp.amazonaws.com"
+  source_arn    = aws_cognito_user_pool.user-pool.arn
 }
 
 resource "aws_lambda_permission" "auth-lambda_permission-apigw" {
