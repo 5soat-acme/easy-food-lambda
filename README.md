@@ -1,4 +1,4 @@
-# Easy Food Infra Lmabda
+# Easy Food Infra Lambda
 
 ## Arquivos Terraform e Lambda
 Na pasta **terraform** há os arquivos do Terraform para gerenciar a infraestrutura de Lambda e Cognito do projeto **[Easy Food](https://github.com/5soat-acme/easy-food)**. As lambdas estão na pasta **lambdas**.
