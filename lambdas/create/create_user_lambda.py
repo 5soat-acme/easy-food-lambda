@@ -32,7 +32,7 @@ def lambda_handler(event, context):
             Password=password,
             UserAttributes=[
                 {'Name': 'name', 'Value': name},
-                {'Name': 'email', 'Value': email}                
+                {'Name': 'email', 'Value': email}
             ]
         )
 
