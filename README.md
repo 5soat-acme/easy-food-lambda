@@ -49,4 +49,4 @@ Exemplo de JSON para autenticação de usuário:
 ```
 
 
-Utilizar para autenticação na API do repositório **[easy-food](https://github.com/5soat-acme/easy-food)** o Token da tag ```IdToken``` gerada pelo Cognito.
+Utilizar para autenticação nas APIs o Token da tag ```IdToken``` gerada pelo Cognito.
