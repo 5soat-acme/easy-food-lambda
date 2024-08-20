@@ -3,5 +3,5 @@ variable "projectName" {
 }
 
 variable "labRole" {
-  default = "arn:aws:iam::610659164388:role/LabRole"
+  default = "arn:aws:iam::530823417496:role/LabRole"
 }
